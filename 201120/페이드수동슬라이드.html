@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이드수동슬라이드</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style: none;}
+
+        .slide {height: 300px; overflow: hidden; position: relative;}
+        .slide ul li {width: 100%; height: 300px; transition: 1s; position: absolute; top: 0; left: 0; opacity: 0;}
+        .slide ul li:nth-child(1) {background: #faa;}
+        .slide ul li:nth-child(2) {background: #ffa;}
+        .slide ul li:nth-child(3) {background: #faf;}
+        .slide ul li:nth-child(4) {background: #aff;}
+
+        .slide input {display: none;}
+        .slide .bullet {
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            text-align: center;
+            z-index: 10;
+        }
+        .slide .bullet label {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #666;
+            display: inline-block;
+            background: #fff;
+            font-size: 0;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        /* 슬라이드 조작 */
+        #pos1:checked ~ .bullet label:nth-child(1),
+        #pos2:checked ~ .bullet label:nth-child(2),
+        #pos3:checked ~ .bullet label:nth-child(3),
+        #pos4:checked ~ .bullet label:nth-child(4) { background: #666;}
+
+        /* bullet 조작 */
+        #pos1:checked ~ ul li:nth-child(1),
+        #pos2:checked ~ ul li:nth-child(2), 
+        #pos3:checked ~ ul li:nth-child(3), 
+        #pos4:checked ~ ul li:nth-child(4) {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <input type="radio" name="pos" id="pos1" checked>
+        <input type="radio" name="pos" id="pos2">
+        <input type="radio" name="pos" id="pos3">
+        <input type="radio" name="pos" id="pos4">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p class="bullet">
+            <label for="pos1">1</label>
+            <label for="pos2">2</label>
+            <label for="pos3">3</label>
+            <label for="pos4">4</label>
+        </p>
+    </div>
+
+</body>
+</html>
