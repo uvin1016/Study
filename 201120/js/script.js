@@ -1,1 +1,1 @@
-var $ = skrollr.init();
+var s = skrollr.init(); 
